@@ -3,7 +3,7 @@ export default {
   collectCoverageFrom: ['<rootDir>/src/**/**/*.ts'],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
-  trandform: {
+  transform: {
     '.+\\.ts$': 'ts-jest'
   }
 }
