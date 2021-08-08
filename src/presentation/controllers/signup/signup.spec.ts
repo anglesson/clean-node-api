@@ -201,7 +201,7 @@ describe('SingUp Controller', () => {
     })
   })
 
-  test('Should return 201 if valid data is provided', () => {
+  test('Should return 200 if valid data is provided', () => {
     const { sut } = makeSut()
     const httpRequest = {
       body: {
@@ -212,7 +212,7 @@ describe('SingUp Controller', () => {
       }
     }
     const httpResponse = sut.handle(httpRequest)
-    expect(httpResponse.statusCode).toBe(201)
+    expect(httpResponse.statusCode).toBe(200)
     expect(httpResponse.body).toEqual({
       id: 'valid_id',
       name: 'valid_name',
