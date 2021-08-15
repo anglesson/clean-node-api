@@ -4,7 +4,7 @@ import app from '../config/app'
 
 describe('Singup Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect()
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
