@@ -2,13 +2,11 @@ import { AddAccountRepository } from '../../../../data/protocols/add-account-rep
 import { AccountModel } from '../../../../domain/models/account'
 import { AddAccountModel } from '../../../../domain/usecases/add-account'
 import { MongoHelper } from '../helpers/mongo-helper'
-import { map } from './account-mapper'
 
 export class AccountMongoRepository implements AddAccountRepository {
   async add (accountData: AddAccountModel): Promise<AccountModel> {
     const accountCollection = MongoHelper.getCollection('accounts')
     const result = await accountCollection.insertOne(accountData)
-    const account = result.ops[0]
-    return map(account)
+    return MongoHelper.map(result.ops[0])
   }
 }
