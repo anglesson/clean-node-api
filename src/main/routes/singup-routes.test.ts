@@ -1,6 +1,6 @@
 import request from 'supertest'
-import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 import app from '../config/app'
+import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 
 describe('Singup Routes', () => {
   beforeAll(async () => {
@@ -13,7 +13,7 @@ describe('Singup Routes', () => {
 
   beforeEach(async () => {
     const accountCollection = MongoHelper.getCollection('accounts')
-    await accountCollection.deleteMany({})
+    await (await accountCollection).deleteMany({})
   })
 
   test('Should return an account on success', async () => {
